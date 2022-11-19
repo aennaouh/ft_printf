@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 21:49:57 by aennaouh          #+#    #+#             */
-/*   Updated: 2022/11/19 21:16:58 by aennaouh         ###   ########.fr       */
+/*   Updated: 2022/11/19 22:28:16 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	ft_check(char s, va_list countstr)
 		count += write(1, "0x", 2);
 		count += ft_pointer(va_arg(countstr, unsigned long long));
 	}
+	else if (s == 'u')
+		count += ft_putunsigned(va_arg(countstr, unsigned int));
 	else if (s == '%')
 		count += ft_putchar('%');
 	else
@@ -46,6 +48,8 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	count = 0;
 	va_start(countstr, str);
+	if (write(1, 0, 0) == -1)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] == '%' && !str[i + 1])

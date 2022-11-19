@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 04:23:53 by aennaouh          #+#    #+#             */
-/*   Updated: 2022/11/19 21:33:17 by aennaouh         ###   ########.fr       */
+/*   Updated: 2022/11/19 22:20:27 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,27 @@ int	ft_putstr(char *str)
 	return (count);
 }
 
-int	ft_putnbr(int n)
+int	ft_putnbr(int nb)
 {
-	long	nb;
 	char	c;
 	int		count;
 
-	nb = n;
 	count = 0;
-	if (nb < 0)
+	if (nb == -2147483648)
+		return (ft_putstr("-2147483648"));
+	else if (nb < 0)
 	{
 		count += ft_putchar('-');
 		nb *= -1;
 	}
-	else if (nb >= 0 && nb < 9)
+	if (nb >= 0 && nb <= 9)
+	{
+		count += ft_putchar(nb + 48);
+	}
+	else
 	{
 		count += ft_putnbr(nb / 10);
 		count += ft_putnbr(nb % 10);
 	}
-	else
-		count += ft_putchar(n + 48);
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: aennaouh <aennaouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 18:36:56 by aennaouh          #+#    #+#             */
-/*   Updated: 2022/11/19 21:39:17 by aennaouh         ###   ########.fr       */
+/*   Updated: 2022/11/19 22:24:52 by aennaouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,23 @@ int	ft_puthex(unsigned int n, char str)
 	return (count);
 }
 
-int	ft_putunsigned(unsigned int n)
+int	ft_putunsigned(unsigned int nb)
 {
 	char	c;
 	int		count;
 
 	count = 0;
-	if (n > 9)
+	if (nb > 9)
 	{
-		count += ft_putunsigned(n / 10);
-		count += ft_putunsigned(n % 10);
+		count += ft_putunsigned(nb / 10);
+		count += ft_putunsigned(nb % 10);
 	}
 	else
 	{
-		c = n + 48;
+		c = nb + 48;
 		count += write(1, &c, 1);
 	}
+	return (count);
 }
 
 int	ft_pointer(unsigned long long n)

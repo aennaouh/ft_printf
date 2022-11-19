@@ -2,6 +2,6 @@
 #include "ft_printf.h"
 int main()
 {
-	
-	ft_printf("%p", 10);
+	fclose(stdout);
+	fprintf(stderr, "%d", ft_printf("hello world"));
 }
