@@ -40,7 +40,6 @@ int	ft_putstr(char *str)
 
 int	ft_putnbr(int nb)
 {
-	char	c;
 	int		count;
 
 	count = 0;
